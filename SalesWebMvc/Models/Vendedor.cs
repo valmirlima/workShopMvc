@@ -7,6 +7,12 @@ namespace SalesWebMvc.Models
 {
     public class Vendedor
     {
+        private int v1;
+        private string v2;
+        private string v3;
+        private DateTime dateTime;
+        private Departamento d1;
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -29,6 +35,17 @@ namespace SalesWebMvc.Models
             SalarioBase = salarioBase;
             this.departamento = departamento;
         }
+
+
+        public Vendedor(int v1, string v2, string v3, DateTime dateTime, Departamento d1)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.dateTime = dateTime;
+            this.d1 = d1;
+        }
+
         public void AddVendas(TotalVendas tv)
         {
             vendas.Add(tv);
