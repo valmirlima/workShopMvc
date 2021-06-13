@@ -8,6 +8,8 @@ namespace SalesWebMvc.Models
 {
     public class SalesWebMvcContext : DbContext
     {
+        private readonly object vendedores;
+
         public SalesWebMvcContext(DbContextOptions<SalesWebMvcContext> options)
             : base(options)
         {
@@ -16,6 +18,10 @@ namespace SalesWebMvc.Models
         public DbSet<Departamento> Departamento { get; set; }
         public DbSet<Vendedor> vendedors { get; set; }
         public DbSet<TotalVendas> totalVendas { get; set; }
-        ///public object Vendedor { get; internal set; }
+
+        internal object Vendedores => vendedores;
+        public object Vendedor { get; internal set; }
+
+      
     }
 }
