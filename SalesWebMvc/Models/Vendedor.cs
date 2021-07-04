@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,8 +16,17 @@ namespace SalesWebMvc.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Display(Name = "Data Nasc")]//Separando o nomes
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNasc { get; set; }
+
+        [Display(Name = "Salario Base")]//Separando o nomes
+        [DisplayFormat(DataFormatString = "{0:F2}")]//formantando com duas casas decimais
         public double SalarioBase { get; set; }
         public Departamento departamento{ get; set; }
         public int DepartamentoId { get; set; }
