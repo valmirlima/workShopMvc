@@ -15,9 +15,13 @@ namespace SalesWebMvc.Models
         private Departamento d1;
 
         public int Id { get; set; }
+        [Required(ErrorMessage = "{0} Requerid")]//Nome obrigatorio
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} Tamanho permitido entre {2} e {1}")]//Tamanho maximo e minimo
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} Requerid")]
+        [EmailAddress(ErrorMessage = "Entre com email")]
         public string Email { get; set; }
 
         [Display(Name = "Data Nasc")]//Separando o nomes
@@ -27,6 +31,8 @@ namespace SalesWebMvc.Models
 
         [Display(Name = "Salario Base")]//Separando o nomes
         [DisplayFormat(DataFormatString = "{0:F2}")]//formantando com duas casas decimais
+        [Required(ErrorMessage = "{0} Requerid")]
+        [Range(100.0, 50000.0, ErrorMessage ="{0} Salario entre {1} e {2}")]
         public double SalarioBase { get; set; }
         public Departamento departamento{ get; set; }
         public int DepartamentoId { get; set; }
